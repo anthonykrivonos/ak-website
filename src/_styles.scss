@@ -1,0 +1,21 @@
+$papaya: #E24E42;
+$mustard: #E9B000;
+$blush: #EB6E80;
+$aqua: #008F95;
+$gray: #515151;
+$offwhite: #fffef9;
+
+body {
+      font-family: Gudea;
+      background-color: $offwhite;
+      color: $gray;
+}
+
+@mixin unselectable() {
+      cursor: default;
+      user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -o-user-select: none;
+}

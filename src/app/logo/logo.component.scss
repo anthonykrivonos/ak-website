@@ -1,0 +1,30 @@
+@import '../../styles';
+
+div {
+      @include unselectable();
+      text-align: center;
+      color: $gray;
+      margin: 15pt auto;
+      white-space: nowrap;
+      width: 280pt;
+      h1 {
+            font-family: Teko;
+            font-size: 45pt;
+            line-height: 30pt;
+            display: inline;
+      }
+      h3 {
+            font-family: Gudea;
+            font-size: 13pt;
+            line-height: 8pt;
+            font-weight: 600;
+      }
+      span {
+            text-align: center;
+            margin: 10pt auto;
+            display: block;
+            width: 50pt;
+            height: 3pt;
+            background: $gray;
+      }
+}
