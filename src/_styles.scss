@@ -5,11 +5,6 @@ $aqua: #008F95;
 $gray: #515151;
 $offwhite: #fffef9;
 
-body {
-      font-family: Gudea;
-      background-color: $offwhite;
-      color: $gray;
-}
 
 @mixin unselectable() {
       cursor: default;
@@ -18,4 +13,22 @@ body {
       -khtml-user-select: none;
       -webkit-user-select: none;
       -o-user-select: none;
+}
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
 }

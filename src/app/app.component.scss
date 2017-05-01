@@ -1,1 +1,29 @@
+@import '../styles';
 
+$background: url('../images/background.jpg');
+
+body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-x: hidden;
+      background-image: $background;
+      background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: $gray;
+      @include breakpoint(xs) {
+            padding-top: 120pt;
+      }
+      @include breakpoint(sm) {
+            padding-top: 190pt;
+      }
+      @include breakpoint(md) {
+            padding-top: 230pt;
+      }
+}
+
+/* Inspired by https://shiienurm.com/ */

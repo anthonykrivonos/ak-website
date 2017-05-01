@@ -1,30 +1,74 @@
 @import '../../styles';
 
+$base-color: $offwhite;
+
 div {
       @include unselectable();
       text-align: center;
-      color: $gray;
-      margin: 15pt auto;
+      color: $base-color;
       white-space: nowrap;
-      width: 280pt;
+      width: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin: auto;
+      @include breakpoint(xs) {
+            margin: 40pt auto;
+      }
+      @include breakpoint(sm) {
+            margin: 50pt auto;
+      }
+      @include breakpoint(md) {
+
+      }
       h1 {
             font-family: Teko;
-            font-size: 45pt;
-            line-height: 30pt;
             display: inline;
+            @include breakpoint(xs) {
+                  font-size: 40pt;
+                  line-height: 20pt;
+            }
+            @include breakpoint(sm) {
+                  font-size: 60pt;
+                  line-height: 40pt;
+            }
+            @include breakpoint(md) {
+                  font-size: 70pt;
+                  line-height: 60pt;
+            }
       }
       h3 {
             font-family: Gudea;
-            font-size: 13pt;
-            line-height: 8pt;
-            font-weight: 600;
+            @include breakpoint(xs) {
+                  font-size: 11pt;
+                  line-height: 8pt;
+            }
+            @include breakpoint(sm) {
+                  font-size: 17pt;
+                  line-height: 10pt;
+            }
+            @include breakpoint(md) {
+                  font-size: 19pt;
+                  line-height: 10pt;
+            }
       }
       span {
             text-align: center;
-            margin: 10pt auto;
             display: block;
-            width: 50pt;
-            height: 3pt;
-            background: $gray;
+            background: $base-color;
+            @include breakpoint(xs) {
+                  margin: 6pt auto;
+                  width: 40pt;
+                  height: 2pt;
+            }
+            @include breakpoint(sm) {
+                  margin: 11pt auto;
+                  width: 70pt;
+                  height: 3pt;
+            }
+            @include breakpoint(md) {
+
+            }
       }
 }

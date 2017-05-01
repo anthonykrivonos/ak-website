@@ -1,0 +1,19 @@
+@import '../../styles';
+
+.backshape {
+      z-index:1;
+      display:block;
+      float:left;
+      width:100%;
+      background:$offwhite;
+      transform:skew(0deg,9deg);
+      -ms-transform:skew(0deg,9deg);
+      -webkit-transform:skew(0deg,9deg);
+      .wrapper {
+            display:block;
+            float:left;
+            width:100%;
+            padding:0 5%;
+            margin:50px auto 200px;
+      }
+}

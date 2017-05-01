@@ -1,0 +1,44 @@
+@import '../../styles';
+
+$base-color: $gray;
+$iphone: url('../../images/iphone.png');
+
+body {
+      color: $base-color;
+      background: none;
+      transform:skew(0deg,-9deg);
+      -ms-transform:skew(0deg,-9deg);
+      -webkit-transform:skew(0deg,-9deg);
+      div {
+            padding-left: 5pt;
+            padding-right: 5pt;
+            float: left;
+            @include breakpoint(xs) {
+                  width: 100%;
+            }
+            @include breakpoint(sm) {
+                  width: 50%;
+            }
+            h1 {
+                  font-family: Gudea;
+            }
+            span {
+                  text-align: left;
+                  display: block;
+                  background: $base-color;
+                  width: 38pt;
+                  height: 1pt;
+                  margin-bottom: 15pt;
+            }
+            p {
+                  font-family: Gudea;
+            }
+            img {
+                  content: $iphone;
+                  display: inline;
+                  float:right;
+                  width: 90%;
+                  margin-top: -50pt;
+            }
+      }
+}
