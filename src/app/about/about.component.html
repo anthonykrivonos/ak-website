@@ -1,11 +1,14 @@
 <body>
-      <div>
+      <div [@toggleXState]="shouldXToggle">
             <h1>About<br/>Me</h1>
             <span></span>
             <p>
-                  Since joining the Software Engineering Major during my junior year of high school, I've participated in mobile app development projects and engineering internships geared toward building interactive user interfaces and web servers. On my own, I have been strengthening my skills in JavaScript interactive media programming using Angular 4 and Ionic 3, and am super excited to unveil a startup a peer and I have been working on for several months. As an obsessive web and app developer, I'm always eager to work with other motivated programmers on great ideas that change the way people interact with technology!</p>
+                  {{(about | async)?.$value}}
+                  <br/><br/>
+                  You can find me on <a href="{{gitHubLink}}">GitHub</a> or connect with me on <a href="{{linkedInLink}}">LinkedIn</a>!
+            </p>
       </div>
-      <div>
-            <img/>
+      <div class="disappear">
+            <img [@toggleState]="shouldYToggle" ondragstart="return false;"/>
       </div>
 </body>

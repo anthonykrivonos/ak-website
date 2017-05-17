@@ -1,0 +1,15 @@
+<body>
+      <div>
+            <h1>Proficiencies</h1>
+            <span></span>
+      </div>
+      <div [@toggleState]="scrollimateOptions.proficiencyComponentScroll.currentState" [scrollimate]="scrollimateOptions.proficiencyComponentScroll">
+            <app-proficiency *ngFor="let item of items | async; let i = index"
+                  [body] = "item.body"
+                  [src] = "item.src"
+                  [title] = "item.title"
+                  [idx] = "i"
+            ></app-proficiency>
+      </div>
+      <br/>
+</body>

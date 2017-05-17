@@ -1,4 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Injectable } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  keyframes
+} from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { translateY } from './../../animations/translateY';
 
 @Component({
   selector: 'app-info',
@@ -6,10 +18,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

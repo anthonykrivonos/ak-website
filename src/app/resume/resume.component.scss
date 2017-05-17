@@ -1,0 +1,32 @@
+@import '../../styles';
+
+$base-color: $gray;
+$iphone: url('../../images/logo.png');
+
+body {
+      transform:skew(0deg,-9deg);
+      -ms-transform:skew(0deg,-9deg);
+      -webkit-transform:skew(0deg,-9deg);
+      background: none;
+      text-align: center;
+      width: 100% !important;
+      display: block !important;
+      margin-top: 50pt;
+      margin-bottom: -75pt;
+      button {
+            color: $gray;
+            font-size: 15pt;
+            background: none;
+            border: solid 1.5pt $gray;
+            border-radius: 1px;
+            padding: 3pt 10pt 3pt 10pt;
+            cursor: pointer;
+            font-family: Chivo;
+            -webkit-transition: background 0.5s;
+            transition: background 0.5s;
+            &:hover {
+                  background: $gray;
+                  color: $offwhite;
+            }
+      }
+}

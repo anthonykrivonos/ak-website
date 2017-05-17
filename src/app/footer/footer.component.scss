@@ -1,0 +1,142 @@
+@import '../../styles';
+
+$base-color: $gray;
+$highlight-color: $papaya;
+
+body {
+      width: 100%;
+      background: $offwhite;
+      display: inline-block;
+      color: $base-color;
+      padding: 0;
+      margin-bottom: -10pt;
+      position: absolute;
+      display: block;
+      z-index: 1;
+      h1 {
+            width: 100%;
+            z-index: 1;
+            @include breakpoint(xs) {
+                  height: 20pt;
+            }
+            @include breakpoint(sm) {
+                  height: 30pt;
+            }
+            background: $offwhite;
+            font-size: 14pt;
+            font-family: Chivo;
+            // h2 {
+            //       @include breakpoint(xs) {
+            //             padding-top: 9pt;
+            //             font-size: 9pt;
+            //             width: 100%;
+            //             min-width: 180pt;
+            //       }
+            //       @include breakpoint(sm) {
+            //             padding-top: 12pt;
+            //             font-size: 12pt;
+            //             padding-left: 20pt;
+            //       }
+            //       a {
+            //             display: inline;
+            //             float: left;
+            //             cursor: hand;
+            //             cursor: pointer;
+            //             @include breakpoint(xs) {
+            //                   text-align: center;
+            //                   font-weight: 500;
+            //             }
+            //             @include breakpoint(sm) {
+            //                   margin-right: 30pt;
+            //             }
+            //             &:hover {
+            //                   span {
+            //                         display: block;
+            //                   }
+            //             }
+            //             span {
+            //                   display: none;
+            //                   background: $highlight-color;
+            //                   @include breakpoint(xs) {
+            //                         height: 1.5pt;
+            //                         margin: 2pt auto;
+            //                         width: 10%;
+            //                   }
+            //                   @include breakpoint(sm) {
+            //                         margin-top: 2pt;
+            //                         height: 2pt;
+            //                         width: 40%;
+            //                   }
+            //             }
+            //                   @include breakpoint(xs) {
+            //                         text-align: center;
+            //                         width: 33%;
+            //                   }
+            //                   @include breakpoint(sm) {
+            //                         margin-right: 30pt;
+            //                   }
+            //       }
+            // }
+            // h3 {
+            //       div {
+            //             span {
+            //                   text-decoration: line-through;
+            //             }
+            //             @include breakpoint(xs) {
+            //                   display: inline;
+            //             }
+            //       }
+            //       @include breakpoint(xs) {
+            //             display: block;
+            //             text-align: center;
+            //             font-size: 8pt;
+            //             line-height: 11pt;
+            //             padding-top: 15pt;
+            //       }
+            //       @include breakpoint(sm) {
+            //             display: inline-block;
+            //             position: absolute;
+            //             width: 40%;
+            //             float: left;
+            //             text-align: right;
+            //             padding-right: 20pt;
+            //             top: 50%;
+            //             top: translate(0,-50%);
+            //             right: 0;
+            //             margin-top: -8pt;
+            //             font-size: 9pt;
+            //       }
+            //       background: $offwhite;
+            // }
+            h3 {
+                  div {
+                        span {
+                              text-decoration: line-through;
+                        }
+                        @include breakpoint(xs) {
+                              display: inline;
+                        }
+                  }
+                  @include breakpoint(xs) {
+                        display: block;
+                        text-align: center;
+                        font-size: 8pt;
+                        line-height: 11pt;
+                        padding-top: 8pt;
+                        padding-bottom: 5pt;
+                        margin: 0;
+                  }
+                  @include breakpoint(sm) {
+                        display: block;
+                        text-align: center;
+                        font-size: 10pt;
+                        line-height: 13pt;
+                        padding-top: 6pt;
+                        padding-bottom: 4pt;
+                        margin: 0;
+                  }
+                  background: $offwhite;
+            }
+      }
+
+}

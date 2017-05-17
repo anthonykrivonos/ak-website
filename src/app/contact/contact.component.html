@@ -1,0 +1,33 @@
+<body>
+      <div class="backshape" [@toggleState]="shouldToggle">
+            <div class="wrapper">
+                  <div>
+                        <div>
+                              <div>
+                                    <h1 (click)="toggle()">Contact Me</h1>
+                                    <span></span>
+                              </div>
+                        </div>
+                        <div>
+                              <img onclick="window.open('http://www.github.com/anthonykrivonos')" class="github"/>
+                              <img onclick="window.open('http://www.linkedin.com/in/anthonykrivonos')" class="linkedin"/>
+                        </div>
+                        <p id="fields">
+                              <input autocomplete="off" type="text" name="name" class="name" placeholder="Full Name"/>
+                              <input autocomplete="off" type="email" name="email" placeholder="Email"/>
+                              <select name="subject" value="3">
+                                    <option selected="selected" disabled>Subject</option>
+                                    <option>General Question</option>
+                                    <option>Business Proposal</option>
+                                    <option>Freelance Web Development Inquiry</option>
+                                    <option>Freelance App Development Inquiry</option>
+                                    <option>Job Recruitment</option>
+                                    <option>Other</option>
+                              </select>
+                              <textarea autocomplete="off" id="contentblock" rows="4" cols="50" maxlength="200"></textarea>
+                              <button (click)="sendMail()" class="send">Send</button>
+                        </p>
+                  </div>
+            </div>
+      </div>
+</body>

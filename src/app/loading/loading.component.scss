@@ -1,0 +1,37 @@
+@import '../../styles';
+
+$loading: url('../../images/loading.gif');
+
+.show {
+      opacity: 1 !important;
+}
+.step {
+      opacity: 0;
+      transition: .5s ease-in-out all;
+}
+
+body {
+      background: rgba(255, 254, 249, 0.8);;
+      position: fixed;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      img {
+            content: $loading;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: auto;
+            opacity: 0.7;
+            @include breakpoint (xs) {
+                  height: 50pt;
+                  width: 50pt;
+                  margin: -25pt auto auto -25pt;
+            }
+            @include breakpoint (sm) {
+                  height: 70pt;
+                  margin: -35pt auto auto -35pt;
+            }
+      }
+}

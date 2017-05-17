@@ -1,0 +1,152 @@
+@import '../../styles';
+
+$base-color: $gray;
+$highlight-color: $aqua;
+
+body {
+      background: none;
+      position: static;
+      display: inline-block;
+      margin-bottom: -130pt;
+      .backshape {
+            width: 1100pt;
+            margin-top: 100pt;
+            transform:skew(0deg,9deg);
+            -ms-transform:skew(0deg,9deg);
+            -webkit-transform:skew(0deg,9deg);
+            background:rgba(255, 254, 249, 0.8);
+            .wrapper {
+                  color: $base-color;
+                  background: none;
+                  transform:skew(0deg,-9deg);
+                  -ms-transform:skew(0deg,-9deg);
+                  -webkit-transform:skew(0deg,-9deg);
+                  div {
+                        @include unselectable();
+                        position: absolute;
+                        width: 100%;
+                        margin-top: -8pt;
+                        div {
+                              &:hover {
+                                    div {
+                                          span {
+                                                display: block;
+                                          }
+                                    }
+                              }
+                              div {
+                                    margin-left: 12pt;
+                                    margin-top: -35pt;
+                                    display: block;
+                                    float: left;
+                                    cursor: hand;
+                                    cursor: pointer;
+                                    h1 {
+                                          font-family: Gudea;
+                                          font-size: 20pt;
+                                          white-space: nowrap;
+                                    }
+                                    span {
+                                          text-align: left;
+                                          display: none;
+                                          background: $highlight-color;
+                                          width: 38pt;
+                                          height: 1.5pt;
+                                          margin-top: -4pt;
+                                    }
+                              }
+                        }
+                        .github {
+                              content: url('../../images/github/unclicked.png');
+                              height: 20pt;
+                              float: left;
+                              margin-top: -35pt;
+                              margin-left: 120pt;
+                              cursor: hand;
+                              cursor: pointer;
+                              &:hover {
+                                    content: url('../../images/github/clicked.png');
+                              }
+                        }
+                        .linkedin {
+                              content: url('../../images/linkedin/unclicked.png');
+                              @extend .github;
+                              margin-left: 147pt;
+                              &:hover {
+                                    content: url('../../images/linkedin/clicked.png');
+                              }
+                        }
+                        p {
+                              font-family: Gudea;
+                              margin-left: 12pt;
+                              color: $gray;
+                              input {
+                                    display: block;
+                                    margin-bottom: 5pt;
+                                    font-size: 12pt;
+                                    background: none;
+                                    border: solid 1.5pt $gray;
+                                    border-radius: 1px;
+                                    padding: 2pt 5pt 1pt 5pt;
+                                    font-family: Chivo;
+                                    @include breakpoint(xs) {
+                                          width: calc(60vw);
+                                    }
+                                    @include breakpoint(sm) {
+                                          width: 50vw;
+                                          max-width: 429pt;
+                                    }
+                              }
+                              .name {
+                                    margin-top: -10pt;
+                                    @include breakpoint(xs) {
+                                          width: calc(60vw);
+                                    }
+                                    @include breakpoint(sm) {
+                                          width: 30vw;
+                                          max-width: 257pt;
+                                    }
+                              }
+                              select, option {
+                                    display: block;
+                                    -webkit-appearance: none;
+                                    @extend input;
+                                    color: #515151;
+                                    @include breakpoint(xs) {
+                                          width: calc(60vw);
+                                    }
+                                    @include breakpoint(sm) {
+                                          width: 70vw;
+                                          max-width: 600pt;
+                                    }
+                              }
+                              textarea {
+                                    display: block;
+                                    @extend input;
+                                    resize: none;
+                                    @include breakpoint(xs) {
+                                          width: calc(60vw);
+                                    }
+                                    @include breakpoint(sm) {
+                                          width: 70vw;
+                                          max-width: 600pt;
+                                    }
+                              }
+                              button {
+                                    @extend input;
+                                    @extend textarea;
+                                    color: $gray;
+                                    cursor: hand;
+                                    cursor: pointer;
+                              }
+                        }
+                  }
+                  .disappear {
+                        @include breakpoint(xs) {
+                              display: none;
+                        }
+                  }
+            }
+      }
+
+}

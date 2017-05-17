@@ -1,0 +1,14 @@
+<body>
+      <div>
+            <h1>Portfolio</h1>
+            <span></span>
+            <div [@toggleState]="scrollimateOptions2.portfolioComponentScroll.currentState" [scrollimate]="scrollimateOptions2.portfolioComponentScroll">
+                  <app-project *ngFor="let item of items | async; let i = index"
+                        [href] = "item.href"
+                        [src] = "item.src"
+                        [title] = "item.title"
+                        [idx] = "i"
+                  ></app-project>
+            </div>
+      </div>
+</body>

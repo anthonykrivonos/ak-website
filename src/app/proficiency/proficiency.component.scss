@@ -1,0 +1,61 @@
+@import '../../styles';
+
+$base-color: $gray;
+$img-src: url('../../images/test.png');
+
+body {
+      @include breakpoint(xs) {
+            width: 60%;
+            margin-left: 20%;
+            display: inline-block;
+            position: static;
+      }
+      @include breakpoint(sm) {
+            width: 50%;
+            float:left;
+            height: 180pt;
+      }
+      @include breakpoint(md) {
+            width: 25%;
+            float:left;
+            height: 200pt;
+      }
+      @include unselectable();
+      color: $base-color;
+      text-align: center;
+      background: $offwhite;
+      margin-top: 20pt;
+      div {
+            img {
+                  width: 100pt;
+                  width: 25%;
+                  margin-top: 10pt;
+                  margin-bottom: 10pt;
+                  display: inline-block;
+                  transition: all 0.15s ease;
+                  @include breakpoint(sm) {
+                        -webkit-filter: grayscale(100%);
+                        -moz-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                        &:hover {
+                              -webkit-filter: grayscale(0%);
+                              -moz-filter: grayscale(0%);
+                              filter: grayscale(0%);
+                        }
+                  }
+            }
+            h1 {
+                  font-family: Teko;
+                  font-size: 20pt;
+            }
+            p {
+                  @include breakpoint(sm) {
+                        padding-left: 20pt;
+                        padding-right: 20pt;
+                  }
+                  font-family: Gudea;
+                  font-size: 10pt;
+                  margin-top: 4pt;
+            }
+      }
+}
