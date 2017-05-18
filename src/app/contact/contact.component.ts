@@ -1,4 +1,4 @@
-import { Component, NgModule, Input, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, NgModule, Input, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   trigger,
@@ -19,7 +19,7 @@ import { transformY } from './../../animations/transformY';
   styleUrls: ['./contact.component.scss'],
   animations: [transformY(200)]
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
       @ViewChild('scrollMe') private scrollCon: ElementRef;
 
       shouldToggle:string = 'false';
@@ -35,6 +35,10 @@ export class ContactComponent {
       constructor(db:AngularFireDatabase) {
             var date = new Date();
             this.itemObservable = db.object('/mail/' + date);
+      }
+
+      ngOnInit() {
+            
       }
 
       // UI Methods

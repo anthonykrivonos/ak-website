@@ -29,7 +29,6 @@ import { ProficiencyComponent } from './proficiency/proficiency.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectComponent } from './project/project.component';
 import { ResumeComponent } from './resume/resume.component';
-import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoadingComponent } from './loading/loading.component';
 
@@ -45,7 +44,6 @@ import { LoadingComponent } from './loading/loading.component';
     PortfolioComponent,
     ProjectComponent,
     ResumeComponent,
-    FooterComponent,
     ContactComponent,
     LoadingComponent
   ],
