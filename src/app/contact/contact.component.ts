@@ -1,12 +1,13 @@
 import { Component, NgModule, Input, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import 'rxjs/Rx';
 import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  keyframes
+      trigger,
+      state,
+      style,
+      animate,
+      transition,
+      keyframes
 } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
@@ -14,66 +15,73 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 import { transformY } from './../../animations/transformY';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
-  animations: [transformY(200)]
+      selector: 'app-contact',
+      templateUrl: './contact.component.html',
+      styleUrls: ['./contact.component.scss'],
+      animations: [transformY(200)]
 })
 export class ContactComponent implements OnInit {
       @ViewChild('scrollMe') private scrollCon: ElementRef;
 
-      shouldToggle:string = 'false';
+      private ENDPOINTS:any = {
+            AUTH: "https://anthonykrivonos.herokuapp.com/auth",
+            CONTACT: "https://anthonykrivonos.herokuapp.com/contact"
+      }
 
-      open:any;
-      done:any;
+      public shouldToggle:string = 'false';
+      public toggleText:string = 'Contact Me';
 
-      disabled:string = "#757575";
-      enabled:string = "#515151";
+      private open:any;
+      private done:any;
 
-      itemObservable:any;
+      private disabled:string = "#757575";
+      private enabled:string = "#515151";
 
-      constructor(db:AngularFireDatabase) {
+      private itemObservable:any;
+
+      constructor(private http:Http, private db:AngularFireDatabase) {
             var date = new Date();
             this.itemObservable = db.object('/mail/' + date);
       }
 
       ngOnInit() {
-            
+
       }
 
       // UI Methods
       toggle() {
-        if (this.shouldToggle == 'false') {
-              this.shouldToggle = 'true';
-              document.getElementById("fields").style.display = "inline-block";
-              this.open = window.setInterval(() => {
-                   this.validateSubmit();
-             }, 250);
-        } else {
-              this.shouldToggle = 'false';
-              clearInterval(this.open);
-              this.done = window.setTimeout(() => {
-                    document.getElementById("fields").style.display = "none";
-              }, 1);
-        }
-        this.done = window.setInterval(() => {
-             window.scrollTo(0,document.body.scrollHeight);
-        }, 1);
-        window.setTimeout(()=>{clearInterval(this.done)}, 500);
+            this.toggleText = `Contact Me`;
+            if (this.shouldToggle == 'false') {
+                  this.shouldToggle = 'true';
+                  document.getElementById("fields").style.display = "inline-block";
+                  this.open = window.setInterval(() => {
+                        this.validateSubmit();
+                  }, 250);
+            } else {
+                  this.shouldToggle = 'false';
+                  clearInterval(this.open);
+                  this.done = window.setTimeout(() => {
+                        document.getElementById("fields").style.display = "none";
+                  }, 1);
+            }
+            this.done = window.setInterval(() => {
+                  window.scrollTo(0,document.body.scrollHeight);
+            }, 1);
+            window.setTimeout(()=>{clearInterval(this.done)}, 500);
       }
 
       scrollToBottom(): void {
-        try {
-            this.scrollCon.nativeElement.scrollTop = this.scrollCon.nativeElement.scrollHeight;
-        } catch(err) { }
+            try {
+                  this.scrollCon.nativeElement.scrollTop = this.scrollCon.nativeElement.scrollHeight;
+            } catch(err) { }
       }
 
       // Mail Methods
       checkFields():boolean {
             return  ((<HTMLInputElement>document.getElementsByName("name")[0]).value != ""
-                  && this.validateEmail((<HTMLInputElement>document.getElementsByName("email")[0]).value)
-                  && (<HTMLInputElement>document.getElementsByName("subject")[0]).value != "Subject"
-                  && (<HTMLInputElement>document.getElementById("contentblock")).value != "");
+            && this.validateEmail((<HTMLInputElement>document.getElementsByName("email")[0]).value)
+            && (<HTMLInputElement>document.getElementsByName("subject")[0]).value != "Subject"
+            && (<HTMLInputElement>document.getElementById("contentblock")).value != "");
       }
 
       clearFields():void {
@@ -113,8 +121,29 @@ export class ContactComponent implements OnInit {
       }
 
       sendMail() {
-            this.itemObservable.set(this.compileFields());
-            this.toggle();
-            this.clearFields();
+            let uid = { uid: `${Date.now()}` };
+            let fields = this.compileFields();
+
+            let headers = new Headers({'Content-Type': 'application/json'});
+            let options = new RequestOptions({headers});
+
+            this.http.post(this.ENDPOINTS.AUTH, JSON.stringify(uid), options).map((res:Response) => res.json()).take(1).subscribe((res) => {
+                  if (res) {
+                        headers = new Headers({'Content-Type': 'application/json', 'x-access-token': res["auth-token"]});
+                        options = new RequestOptions({headers});
+                        this.http.post(this.ENDPOINTS.CONTACT, JSON.stringify(fields), options).take(1).subscribe((res) => {
+                              if (res) {
+                                    this.itemObservable.set(fields);
+                                    this.toggle();
+                                    this.toggleText = `Sent!`;
+                                    this.clearFields();
+                              } else {
+                                    console.error(`Error sending mail.`);
+                              }
+                        });
+                  } else {
+                        console.error(`Error authenticating sender.`);
+                  }
+            });
       }
 }

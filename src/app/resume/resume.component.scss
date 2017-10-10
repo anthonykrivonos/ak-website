@@ -12,7 +12,7 @@ body {
       width: 100% !important;
       display: block !important;
       margin-top: 50pt;
-      margin-bottom: -75pt;
+      margin-bottom: -125pt;
       button {
             color: $gray;
             font-size: 15pt;
@@ -28,5 +28,9 @@ body {
                   background: $gray;
                   color: $offwhite;
             }
+      }
+      p {
+            margin-top: 30pt;
+            color: $gray;
       }
 }
