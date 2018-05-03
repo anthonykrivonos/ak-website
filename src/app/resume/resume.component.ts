@@ -9,11 +9,15 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 export class ResumeComponent implements OnInit {
       resume: FirebaseObjectObservable<any>;
       resumeLink: string;
+      year:string;
+
       constructor (db: AngularFireDatabase) {
             this.resume = db.object('/resume', { preserveSnapshot: true });
             this.resume.subscribe(snapshot => this.resumeLink = snapshot.val());
       }
-      ngOnInit() {}
+      ngOnInit():void {
+            this.year = (new Date()).getFullYear().toString();
+      }
 
       loadResume(): void {
             var focusWindow = window.open(this.resumeLink);

@@ -4,7 +4,7 @@
                   <div>
                         <div>
                               <div>
-                                    <h1 (click)="toggle()">{{toggleText}}</h1>
+                                    <h1 (click)="toggle()">{{ toggleText }}</h1>
                                     <span></span>
                               </div>
                         </div>
@@ -16,16 +16,17 @@
                               <input autocomplete="off" type="text" name="name" class="name" placeholder="Full Name"/>
                               <input autocomplete="off" type="email" name="email" placeholder="Email"/>
                               <select name="subject" value="3">
-                                    <option selected="selected" disabled>Subject</option>
-                                    <option>General Question</option>
-                                    <option>Business Proposal</option>
-                                    <option>Freelance Web Development Inquiry</option>
-                                    <option>Freelance App Development Inquiry</option>
-                                    <option>Job Recruitment</option>
-                                    <option>Other</option>
+                                    <option selected="selected" disabled>Subject &#160;❭</option>
+                                    <option>General Question &#160;❭</option>
+                                    <option>Business Proposal &#160;❭</option>
+                                    <option>Freelance Web Development Inquiry &#160;❭</option>
+                                    <option>Freelance App Development Inquiry &#160;❭</option>
+                                    <option>Job Recruitment &#160;❭</option>
+                                    <option>Other &#160;❭</option>
                               </select>
                               <textarea autocomplete="off" id="contentblock" rows="4" cols="50" maxlength="200"></textarea>
-                              <button (click)="sendMail()" class="send">Send</button>
+                              <button *ngIf="!isValid" (click)="sendMail()" class="send invalid">Complete All Fields to Send</button>
+                              <button *ngIf="isValid" (click)="sendMail()" class="send">Send</button>
                         </p>
                   </div>
             </div>

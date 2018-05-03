@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+import * as AOS from 'aos';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,7 @@ export class AppComponent implements OnInit {
 
       constructor(db: AngularFireDatabase) {
             this.items = db.list('/items');
+            AOS.init();
       }
 
       ngOnInit() {

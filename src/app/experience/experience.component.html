@@ -1,0 +1,17 @@
+<body>
+      <div>
+            <h1>Experience</h1>
+            <span></span>
+      </div>
+      <div>
+            <app-occupation *ngFor="let item of items; let i = index"
+                  [body] = "item?.body"
+                  [period] = "item?.period"
+                  [src] = "item?.src"
+                  [occupation] = "item?.occupation"
+                  [company] = "item?.company"
+                  [idx] = "i"
+            ></app-occupation>
+      </div>
+      <br/>
+</body>

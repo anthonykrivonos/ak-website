@@ -1,7 +1,6 @@
 @import '../../styles';
 
 $base-color: $gray;
-$img-src: url('../../images/test.png');
 
 body {
       @include breakpoint(xs) {

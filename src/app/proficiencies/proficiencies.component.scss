@@ -5,22 +5,23 @@ $iphone: url('../../images/iphone.png');
 
 body {
       color: $base-color;
-      background: $offwhite;
+      background: $white;
       transform:skew(0deg,-9deg);
       -ms-transform:skew(0deg,-9deg);
       -webkit-transform:skew(0deg,-9deg);
       height: auto;
-      margin-bottom: 50pt;
       display: inline-block;
       div {
             width: 100%;
             @include breakpoint(xs) {
                   padding-left: 5pt;
                   padding-right: 5pt;
+                  margin-bottom: 25pt;
             }
             @include breakpoint(sm) {
                   padding-left: 15pt;
                   padding-right: 15pt;
+                  margin-bottom: 50pt;
             }
             @include breakpoint(lg) {
                   padding-left: 30pt;

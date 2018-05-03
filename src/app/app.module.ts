@@ -31,6 +31,8 @@ import { ProjectComponent } from './project/project.component';
 import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoadingComponent } from './loading/loading.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { OccupationComponent } from './occupation/occupation.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { LoadingComponent } from './loading/loading.component';
     ProjectComponent,
     ResumeComponent,
     ContactComponent,
-    LoadingComponent
+    LoadingComponent,
+    ExperienceComponent,
+    OccupationComponent
   ],
   imports: [
     BrowserModule,

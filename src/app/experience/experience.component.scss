@@ -1,63 +1,46 @@
 @import '../../styles';
 
 $base-color: $gray;
-$iphone: url('../../images/iphone.png');
 
 body {
       color: $base-color;
-      background: none;
+      background: $white;
       transform:skew(0deg,-9deg);
       -ms-transform:skew(0deg,-9deg);
       -webkit-transform:skew(0deg,-9deg);
       height: auto;
-      display: flex;
       margin-bottom: 50pt;
+      display: inline-block;
       div {
-            float: left;
-            flex: 1;
+            width: 100%;
             @include breakpoint(xs) {
-                  width: 100%;
                   padding-left: 5pt;
                   padding-right: 5pt;
             }
             @include breakpoint(sm) {
-                  width: 50%;
                   padding-left: 15pt;
                   padding-right: 15pt;
             }
             @include breakpoint(lg) {
-                  width: 50%;
                   padding-left: 30pt;
                   padding-right: 30pt;
             }
             h1 {
                   font-family: Gudea;
+                  text-align: center;
+                  margin-top: 30pt;
             }
             span {
-                  text-align: left;
+                  margin: auto;
+                  margin-top: 5pt;
                   display: block;
                   background: $base-color;
-                  width: 48pt;
+                  width: 50pt;
                   height: 1.5pt;
-                  margin-bottom: 15pt;
-            }
-            p {
-                  font-family: Gudea;
-                  font-size: 12pt;
-                  line-height: 22pt;
-                  a {
-                        color: #008F95;
-                  }
-            }
-            img {
-                  content: $iphone;
-                  display: inline;
-                  float:right;
-                  width: 90%;
-                  margin-top: -50pt;
+                  margin-bottom: 10pt;
             }
       }
-      .phone {
+      .disappear {
             @include breakpoint(xs) {
                   display: none;
             }

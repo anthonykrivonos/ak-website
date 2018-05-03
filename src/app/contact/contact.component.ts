@@ -31,6 +31,8 @@ export class ContactComponent implements OnInit {
       public shouldToggle:string = 'false';
       public toggleText:string = 'Contact Me';
 
+      public isValid:boolean = false;
+
       private open:any;
       private done:any;
 
@@ -78,10 +80,11 @@ export class ContactComponent implements OnInit {
 
       // Mail Methods
       checkFields():boolean {
-            return  ((<HTMLInputElement>document.getElementsByName("name")[0]).value != ""
+            this.isValid = ((<HTMLInputElement>document.getElementsByName("name")[0]).value != ""
             && this.validateEmail((<HTMLInputElement>document.getElementsByName("email")[0]).value)
             && (<HTMLInputElement>document.getElementsByName("subject")[0]).value != "Subject"
             && (<HTMLInputElement>document.getElementById("contentblock")).value != "");
+            return this.isValid;
       }
 
       clearFields():void {
@@ -129,6 +132,7 @@ export class ContactComponent implements OnInit {
 
             this.http.post(this.ENDPOINTS.AUTH, JSON.stringify(uid), options).map((res:Response) => res.json()).take(1).subscribe((res) => {
                   if (res) {
+                        console.log(JSON.stringify(res));
                         headers = new Headers({'Content-Type': 'application/json', 'x-access-token': res["auth-token"]});
                         options = new RequestOptions({headers});
                         this.http.post(this.ENDPOINTS.CONTACT, JSON.stringify(fields), options).take(1).subscribe((res) => {

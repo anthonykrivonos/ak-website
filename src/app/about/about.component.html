@@ -1,14 +1,14 @@
 <body>
-      <div [@toggleXState]="shouldXToggle">
-            <h1>About<br/>Me</h1>
+      <div data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" [@toggleXState]="shouldXToggle">
+            <h1>About Me</h1>
             <span></span>
             <p>
-                  {{(about | async)?.$value}}
+                  {{ about || "..." }}
                   <br/><br/>
-                  You can find me on <a href="{{gitHubLink}}">GitHub</a> or connect with me on <a href="{{linkedInLink}}">LinkedIn</a>!
+                  You can find me on <a href="{{ gitHubLink }}">GitHub</a> or connect with me on <a href="{{ linkedInLink }}">LinkedIn</a>!
             </p>
       </div>
-      <div class="disappear">
-            <img [@toggleState]="shouldYToggle" ondragstart="return false;"/>
+      <div data-aos="fade-up" data-aos-offset="400" data-aos-easing="ease-in-sine" data-aos-duration="600" class="phone">
+            <img ondragstart="return false;"/>
       </div>
 </body>

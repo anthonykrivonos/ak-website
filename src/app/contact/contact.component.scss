@@ -7,14 +7,14 @@ body {
       background: none;
       position: static;
       display: inline-block;
-      margin-bottom: -130pt;
+      margin-bottom: -150pt;
       .backshape {
-            width: 1100pt;
-            margin-top: 100pt;
+            width: 1400pt;
+            margin-top: 80pt;
             transform:skew(0deg,9deg);
             -ms-transform:skew(0deg,9deg);
             -webkit-transform:skew(0deg,9deg);
-            background:rgba(255, 254, 249, 0.8);
+            background: $white;
             .wrapper {
                   color: $base-color;
                   background: none;
@@ -25,7 +25,7 @@ body {
                         @include unselectable();
                         position: absolute;
                         width: 100%;
-                        margin-top: -8pt;
+                        margin-top: -20pt;
                         div {
                               &:hover {
                                     div {
@@ -81,16 +81,17 @@ body {
                               margin-left: 12pt;
                               color: $gray;
                               input {
+                                    @extend .material-box-shadow-sm;
                                     display: block;
                                     margin-bottom: 5pt;
                                     font-size: 12pt;
                                     background: none;
-                                    border: solid 1.5pt $gray;
-                                    border-radius: 1px;
+                                    border: solid 1.25pt $gray;
+                                    border-radius: 4px;
                                     padding: 2pt 5pt 1pt 5pt;
                                     font-family: Chivo;
                                     @include breakpoint(xs) {
-                                          width: calc(60vw);
+                                          width: calc(70vw);
                                     }
                                     @include breakpoint(sm) {
                                           width: 50vw;
@@ -100,7 +101,7 @@ body {
                               .name {
                                     margin-top: -10pt;
                                     @include breakpoint(xs) {
-                                          width: calc(60vw);
+                                          width: calc(70vw);
                                     }
                                     @include breakpoint(sm) {
                                           width: 30vw;
@@ -113,7 +114,7 @@ body {
                                     @extend input;
                                     color: #515151;
                                     @include breakpoint(xs) {
-                                          width: calc(60vw);
+                                          width: calc(70vw);
                                     }
                                     @include breakpoint(sm) {
                                           width: 70vw;
@@ -125,7 +126,7 @@ body {
                                     @extend input;
                                     resize: none;
                                     @include breakpoint(xs) {
-                                          width: calc(60vw);
+                                          width: calc(70vw);
                                     }
                                     @include breakpoint(sm) {
                                           width: 70vw;
@@ -138,6 +139,10 @@ body {
                                     color: $gray;
                                     cursor: hand;
                                     cursor: pointer;
+                                    &.invalid {
+                                          box-shadow: 0px 0px 0px !important;
+                                          opacity: 0.8 !important;
+                                    }
                               }
                         }
                   }

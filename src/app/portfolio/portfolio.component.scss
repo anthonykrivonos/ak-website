@@ -16,10 +16,12 @@ body {
             @include breakpoint(xs) {
                   padding-left: 5pt;
                   padding-right: 5pt;
+                  margin-bottom: -10vw;
             }
             @include breakpoint(sm) {
                   padding-left: 15pt;
                   padding-right: 15pt;
+                  margin-bottom: -5vw;
             }
             @include breakpoint(lg) {
                   padding-left: 30pt;
@@ -40,6 +42,7 @@ body {
                   margin-bottom: 10pt;
             }
             div {
+                  margin-top: 30pt;
                   position: static;
                   display: block;
             }

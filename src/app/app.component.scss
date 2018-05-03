@@ -9,7 +9,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: $offwhite;
+	background-color: $white;
       @include breakpoint(xs) {
             padding-top: 120pt;
       }
